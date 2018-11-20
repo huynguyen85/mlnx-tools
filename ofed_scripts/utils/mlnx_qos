@@ -28,7 +28,6 @@
 
 import sys
 import os
-import subprocess
 import array
 
 if os.path.exists('/usr/share/pyshared'):
@@ -371,11 +370,6 @@ tsa = [IEEE_8021QAZ_TSA_STRICT, IEEE_8021QAZ_TSA_STRICT,IEEE_8021QAZ_TSA_STRICT,
 tc_bw = [0, 0, 0, 0, 0, 0, 0, 0]
 prio_tc = [0, 0, 0, 0, 0, 0, 0, 0]
 printall = False
-
-res = subprocess.Popen(["ps", "-e"], stdout=subprocess.PIPE)
-output = res.communicate()[0]
-if 'lldpad' in output:
-	print('****** WARNING: lldpad service is running and may overwrite your settings ******\n')
 
 ctrl = DcbController(options.intf)
 
